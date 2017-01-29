@@ -10,6 +10,9 @@ aptitude -y upgrade
 aptitude -y install vim screen supervisor htop iotop python-pip python
 aptitude -y install libffi-dev libssl-dev
 
+systemctl start supervisor
+systemctl enable supervisor
+
 cat > ~/.vimrc <<- EOM
 syntax enable
 set number
