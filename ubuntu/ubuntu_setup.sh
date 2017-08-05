@@ -25,7 +25,7 @@ set showmatch
 let python_highlight_all = 1
 EOM
 
-pip install -U pip virtualenv pymongo python-dateutil ipython
-pip install requests[security]
+pip install -U pip virtualenv pymongo python-dateutil
+pip install ipython==5.3 httpie requests[security]
 
 aptitude -y install nginx
