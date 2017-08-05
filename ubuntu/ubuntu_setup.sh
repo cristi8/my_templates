@@ -7,7 +7,7 @@ apt-get update
 apt-get -y install aptitude
 aptitude -y upgrade
 
-aptitude -y install vim screen supervisor htop iotop python-pip python
+aptitude -y install vim screen supervisor htop iotop python-pip python python-dev
 aptitude -y install libffi-dev libssl-dev
 
 systemctl start supervisor
@@ -25,7 +25,7 @@ set showmatch
 let python_highlight_all = 1
 EOM
 
-pip install -U pip virtualenv pymongo python-dateutil
+pip install -U pip virtualenv pymongo python-dateutil ipython
 pip install requests[security]
 
 aptitude -y install nginx
