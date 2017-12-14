@@ -1,0 +1,96 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4866eb68415b74e0e368efe47da48abd674821e8d6e2a7256197b357a8819e05"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "0",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "4.4.0-47-generic",
+            "platform_system": "Linux",
+            "platform_version": "#68-Ubuntu SMP Wed Oct 26 19:39:52 UTC 2016",
+            "python_full_version": "2.7.12",
+            "python_version": "2.7",
+            "sys_platform": "linux2"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "cheroot": {
+            "hashes": [
+                "sha256:36655d1b6d25342b4501c3bb0c92665ded96f4e071a6320941ca3b47ceedc75d",
+                "sha256:ba474e5149b03fabc2bba2d0b490b4d95443894d45b1430b799dccea3b3f4683"
+            ],
+            "version": "==6.0.0"
+        },
+        "cherrypy": {
+            "hashes": [
+                "sha256:9e11d71c0e234095823c97fa0f798ca7b8d25a4be1bf034506a3989dae654e36",
+                "sha256:d44525d700fd11d40d052807d779bf6b0c574c272fafd6467090f08c96e538ea"
+            ],
+            "version": "==13.0.0"
+        },
+        "jaraco.classes": {
+            "hashes": [
+                "sha256:a01e2a1199b09d90169674f56f93766d2b49821424f0032d013ad77bf73d9ae9",
+                "sha256:e347f2b502521bfc35c57ab4695e8b6d7371625c392a0ca0d46742ee93359d3e"
+            ],
+            "version": "==1.4.3"
+        },
+        "more-itertools": {
+            "hashes": [
+                "sha256:7e33c0aa139e78345da641c00203b02afa24d86fc13cd20f1db5413c35a9436c",
+                "sha256:f0bf80f8aaeb8bcc2b33976146e079c668fc8c6990d0d8573362b89cbf657d8d",
+                "sha256:5d21dcefa19782f9ec9aa64e0bfd903f5024512b1e1f17519800b193b2e64d31"
+            ],
+            "version": "==4.0.1"
+        },
+        "portend": {
+            "hashes": [
+                "sha256:99c265340a5bb46a037c0bbc76556416d7eef47f87ea0f1f6c0f9185b6faf154",
+                "sha256:bc48d3d99e1eaf2e9406c729f8848bfdaf87876cd3560dc3ec6c16714f529586"
+            ],
+            "version": "==2.2"
+        },
+        "pytz": {
+            "hashes": [
+                "sha256:80af0f3008046b9975242012a985f04c5df1f01eed4ec1633d56cc47a75a6a48",
+                "sha256:feb2365914948b8620347784b6b6da356f31c9d03560259070b2f30cff3d469d",
+                "sha256:59707844a9825589878236ff2f4e0dc9958511b7ffaae94dc615da07d4a68d33",
+                "sha256:d0ef5ef55ed3d37854320d4926b04a4cb42a2e88f71da9ddfdacfde8e364f027",
+                "sha256:c41c62827ce9cafacd6f2f7018e4f83a6f1986e87bfd000b8cfbd4ab5da95f1a",
+                "sha256:8cc90340159b5d7ced6f2ba77694d946fc975b09f1a51d93f3ce3bb399396f94",
+                "sha256:dd2e4ca6ce3785c8dd342d1853dd9052b19290d5bf66060846e5dc6b8d6667f7",
+                "sha256:699d18a2a56f19ee5698ab1123bbcc1d269d061996aeb1eda6d89248d3542b82",
+                "sha256:fae4cffc040921b8a2d60c6cf0b5d662c1190fe54d718271db4eb17d44a185b7"
+            ],
+            "version": "==2017.3"
+        },
+        "six": {
+            "hashes": [
+                "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb",
+                "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+            ],
+            "version": "==1.11.0"
+        },
+        "tempora": {
+            "hashes": [
+                "sha256:db52b1759a1c3337e5d9baad2a78455ac5761847d32ce4ab8961f78389517d61",
+                "sha256:cf2dcf7f219ed52beef9c9c1a94de41ef8a417f0fe7bc9a9f14ddaf095e795ed"
+            ],
+            "version": "==1.10"
+        }
+    },
+    "develop": {}
+}
