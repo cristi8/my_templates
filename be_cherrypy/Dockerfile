@@ -1,10 +1,10 @@
 FROM cristi8/docker-app-base
 
-
-EXPOSE 8080
+COPY Pipfile Pipfile.lock /app/
+RUN pipenv install --system
 
 COPY . /app
 
-RUN pipenv install --system
+EXPOSE 8080
 
 CMD ["/app/run.py", "/app/cherrypy_config/docker.conf"]
