@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    graphite:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        image: sitespeedio/graphite:0.9.14
+        container_name: graphite
+        ports:
+            - "2003:2003"
+            - "8080:80"
+
+    cassandra:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        build: ./cassandra-graphite
+        container_name: cassandra
+        ports:
+            - "9042:9042"
+        depends_on:
+            - graphite
+
+    grafana:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        image: grafana/grafana:3.1.0
+        container_name: grafana
+        ports:
+            - "3000:3000"
+        depends_on:
+            - graphite

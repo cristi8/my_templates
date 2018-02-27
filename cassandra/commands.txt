@@ -1,0 +1,48 @@
+DESCRIBE KEYSPACES
+
+# DROP KEYSPACE [ IF EXISTS ] keyspace_name
+
+CREATE KEYSPACE test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+CREATE KEYSPACE IF NOT EXISTS test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+USE test
+DESCRIBE TABLES
+
+CREATE TABLE monkeySpecies (
+    species text PRIMARY KEY,
+    common_name text,
+    population varint,
+    average_size int
+) WITH comment='Important biological records'
+   AND read_repair_chance = 1.0;
+
+CREATE TABLE timeline (
+    userid uuid,
+    posted_month int,
+    posted_time uuid,
+    body text,
+    posted_by text,
+    PRIMARY KEY (userid, posted_month, posted_time)
+) WITH compaction = { 'class' : 'LeveledCompactionStrategy' };
+
+CREATE TABLE loads (
+    machine inet,
+    cpu int,
+    mtime timeuuid,
+    load float,
+    PRIMARY KEY ((machine, cpu), mtime)
+) WITH CLUSTERING ORDER BY (mtime DESC);
+
+SELECT name, occupation FROM users WHERE userid IN (199, 200, 207);
+
+
+CREATE INDEX ON Mutants (abilityId);
+
+
+CREATE MATERIALIZED VIEW monkeySpecies_by_population AS
+    SELECT * FROM monkeySpecies
+    WHERE population IS NOT NULL AND species IS NOT NULL
+    PRIMARY KEY (population, species)
+    WITH comment='Allow query by population instead of species';
+
+
+http://cassandra.apache.org/doc/latest/tools/nodetool/nodetool.html
