@@ -1,0 +1,14 @@
+
+
+version: '3'
+
+services:
+    cassandra:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        image: cassandra:3
+        ports:
+            - "9042:9042"
+        environment:
+            - CASSANDRA_CLUSTER_NAME=MyCluster
+        volumes:
+            - "/data/db/cassandra_test:/var/lib/cassandra"
