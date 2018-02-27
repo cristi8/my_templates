@@ -1,0 +1,43 @@
+#
+# This sets up a RabbitMQ server with Management and Shovel plugins enabled
+#
+# How to use this:
+# - Generate a TLS certificate. There is a convenience script "./generate_certificate.sh" that writes to "certificate" directory
+# - Change RabbitMQ login credentials below, by changing the environment variables
+# - When connecting with a client, you should validate server certificate. Example code is in the "client_pika" directory
+#
+#
+# How this works:
+# - RabbitMQ is started without TLS configured. It listens on port 5672 and 15672, but those aren't exposed outside docker network
+# - A HAProxy service does TLS termination and communicates in plain text inside the docker network
+# - The HAProxy server also handles killing dead connections that have been reported with pika
+# - HAProxy exposes ports 5671 and 15671 (the rabbitmq defaults for tls-enabled connections)
+#
+
+version: '3'
+
+services:
+
+    rabbitmq:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        build:
+            context: ./rabbitmq-management-shovel
+            dockerfile: Dockerfile
+        environment:
+            - RABBITMQ_DEFAULT_USER=guest2
+            - RABBITMQ_DEFAULT_PASS=guest2
+        #ports:
+        #    - "5672:5672"
+        #    - "15672:15672"
+        restart: on-failure
+
+    rabbitmq-proxy:
+        logging: {driver: "json-file", options: {max-size: "1m", max-file: "5"}}
+        image: haproxy:1.8
+        ports:
+            - "5671:5671"
+            - "15671:15671"
+        volumes:
+            - "./certificate/cert.pem:/etc/cert.pem"
+            - "./haproxy.conf:/usr/local/etc/haproxy/haproxy.cfg"
+        restart: on-failure

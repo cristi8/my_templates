@@ -20,4 +20,5 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx-site.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./frontend/dist:/var/www/static:ro
     restart: always
